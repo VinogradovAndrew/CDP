@@ -1,7 +1,7 @@
 "use strict";
 const DB = require('../fake-db');
 
-module.exports = function (req, res) {
+module.exports = (req, res) => {
     const METHOD = req.method;
     const REQUEST_URL = req.url;
 
