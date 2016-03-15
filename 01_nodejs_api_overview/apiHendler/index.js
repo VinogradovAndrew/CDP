@@ -6,13 +6,15 @@ module.exports = (req, res) => {
     const REQUEST_URL = req.url;
 
     if (METHOD === 'GET') {
-        //get collection
-        if (REQUEST_URL.length < 15) {
+        const URL_WITHOUT_ID_LENGTH = 10;
+        const URL_PART = 11;
+
+        if (REQUEST_URL.length === URL_WITHOUT_ID_LENGTH) {
             DB.getCollection(callback);
         }//get user by id
         else {
-            let userID = REQUEST_URL.slice(11);
-            DB.getById(userID, callback);
+            const USER_ID = REQUEST_URL.slice(URL_PART);
+            DB.getById(USER_ID, callback);
         }
     }
     else if (METHOD === 'POST') {
@@ -43,7 +45,6 @@ module.exports = (req, res) => {
         }
     }
 };
-
 
 function recieveData(req, callback) {
     let body = [];

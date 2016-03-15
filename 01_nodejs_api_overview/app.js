@@ -9,18 +9,15 @@ let server = http.createServer((req, res)=> {
     if (REQUEST_URL === '/' || REQUEST_URL.match(/^\/public\//i)) {
 
         router(req, res, REQUEST_URL);
-
     }
     else if (REQUEST_URL === '/favicon.ico') {
 
         res.writeHead(404);
         res.end();
-
     }
     else {
 
         apiHendler(req, res);
-
     }
 });
 
