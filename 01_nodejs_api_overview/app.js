@@ -10,11 +10,6 @@ let server = http.createServer((req, res)=> {
 
         router(req, res, REQUEST_URL);
     }
-    else if (REQUEST_URL === '/favicon.ico') {
-
-        res.writeHead(404);
-        res.end();
-    }
     else {
 
         apiHendler(req, res);

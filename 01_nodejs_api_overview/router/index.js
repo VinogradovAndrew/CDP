@@ -7,6 +7,10 @@ module.exports = (req, res, url) => {
     const PARSED_URL = path.parse(url);
     const FILE_TYPE = PARSED_URL.ext.slice(1);
 
+    if (url === '/favicon.ico') {
+        res.writeHead(404);
+        res.end();
+    }
     if (PARSED_URL.base === '') {
         sendFile(res, './views/index.html');
     }
