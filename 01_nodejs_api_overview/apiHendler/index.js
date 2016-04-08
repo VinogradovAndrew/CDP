@@ -8,7 +8,6 @@ module.exports = (req, res) => {
     if (METHOD === 'GET') {
         const URL_WITHOUT_ID_LENGTH = 10;
         const URL_PART = 11;
-
         if (REQUEST_URL.length === URL_WITHOUT_ID_LENGTH) {
             DB.getCollection(callback);
         }//get user by id
@@ -37,7 +36,7 @@ module.exports = (req, res) => {
     function callback(err, data) {
         if (err) {
             res.writeHead(404, {'Content-type': 'application/json'});
-            res.end(err);
+            res.end(err.toString());
         }
         else {
             res.writeHead(200, {'Content-type': 'application/json'});
